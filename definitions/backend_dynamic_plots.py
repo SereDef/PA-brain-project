@@ -1,11 +1,18 @@
 import numpy as np
 
 from nilearn import plotting
+from nilearn.surface import load_surf_data
+
 from matplotlib.colors import ListedColormap
 
 from definitions.backend_calculations import fetch_surface, fetch_cont_colormap, fetch_discr_colormap
 import definitions.layout_styles as styles
 
+
+def dim_sulc(sulc, darkness=0.5):
+    sulc = load_surf_data(sulc)
+    s = (sulc - np.nanmin(sulc)) / np.ptp(sulc)   # -> [0,1]
+    return 0.5 + (s - 0.5) * darkness             # compress around mid-grey; lower = dimmer
 
 def plot_surfmap(min_beta, max_beta, n_clusters, sign_clusters, sign_betas,
                  surf='pial',  # 'pial', 'infl', 'flat', 'sphere'
@@ -23,8 +30,7 @@ def plot_surfmap(min_beta, max_beta, n_clusters, sign_clusters, sign_betas,
             brain3D[hemi] = plotting.plot_surf(
                 surf_mesh=fs_avg[f'{surf}_{hemi}'],  # Surface mesh geometry
                 surf_map=None,  # No statistical map
-                bg_map=fs_avg[f'sulc_{hemi}'],  # alpha=.2, only in matplotlib
-                darkness=0.3,
+                bg_map=dim_sulc(fs_avg[f'sulc_{hemi}'], 0.3),
                 hemi=hemi,
                 view='lateral',
                 engine='plotly',  # axes=axs[0] # only for matplotlib
@@ -63,8 +69,7 @@ def plot_surfmap(min_beta, max_beta, n_clusters, sign_clusters, sign_betas,
         brain3D[hemi] = plotting.plot_surf(
                 surf_mesh=fs_avg[f'{surf}_{hemi}'],  # Surface mesh geometry
                 surf_map=stats_map[:n_nodes],  # Statistical map
-                bg_map=fs_avg[f'sulc_{hemi}'],  # alpha=.2, only in matplotlib
-                darkness=0.6,
+                bg_map=dim_sulc(fs_avg[f'sulc_{hemi}'], 0.3),
                 hemi=hemi,
                 view='lateral',
                 engine='plotly',  # axes=axs[0] # only for matplotlib
@@ -72,7 +77,6 @@ def plot_surfmap(min_beta, max_beta, n_clusters, sign_clusters, sign_betas,
                 symmetric_cmap=False,  # sym_cmap,
                 colorbar=False,
                 vmin=min_val, vmax=max_val,
-                avg_method='median',
                 threshold=thresh
             ).figure
 
@@ -95,8 +99,7 @@ def plot_overlap(overlap_maps, surf='pial', resol='fsaverage6'):
         brain3D[hemi] = plotting.plot_surf(
             surf_mesh=fs_avg[f'{surf}_{hemi}'],  # Surface mesh geometry
             surf_map=overlap_maps[hemi][:n_nodes],  # Statistical map
-            bg_map=fs_avg[f'sulc_{hemi}'],  # alpha=.2, only in matplotlib
-            darkness=0.7,
+            bg_map=dim_sulc(fs_avg[f'sulc_{hemi}'], 0.3),
             hemi=hemi,
             view='lateral',
             engine='plotly',  # or matplolib # axes=axs[0] # only for matplotlib
