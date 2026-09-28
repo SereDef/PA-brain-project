@@ -1,6 +1,8 @@
 __pycache__/
 definitions/__pycache__/
 
+.venv/
+
 data/
 
 # Ignore all result files by default
