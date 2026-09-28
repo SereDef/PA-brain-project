@@ -1,0 +1,11 @@
+Loaded verywise 1.3.6
+⠙ Build (lh, area) super-subject matrix
+ℹ 4407/4407 surf files found.
+⠙ Build (lh, area) super-subject matrix✔ Build (lh, area) super-subject matrix [2m 15.1s]
+
+⠙ Populate super-subject matrix
+Using cluster of 64 workers
+⠙ Populate super-subject matrix• saving supersubject matrix to .rds file.
+⠙ Populate super-subject matrix✔ Populate super-subject matrix [10m 40.1s]
+
+Error while shutting down parallel: unable to terminate some child processes

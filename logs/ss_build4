@@ -1,0 +1,14 @@
+Loaded verywise 1.3.6
+⠙ Build (rh, area) super-subject matrix
+Loaded verywise 1.3.6
+⠙ Build (rh, area) super-subject matrix
+[2026-07-01T11:04:31.674] error: *** JOB 24341198 ON tcn335 CANCELLED AT 2026-07-01T11:04:31 DUE to SIGNAL Terminated ***
+ℹ 4407/4407 surf files found.
+⠙ Build (rh, area) super-subject matrix✔ Build (rh, area) super-subject matrix [2m 25.3s]
+
+⠙ Populate super-subject matrix
+Using cluster of 64 workers
+⠙ Populate super-subject matrix• saving supersubject matrix to .rds file.
+⠙ Populate super-subject matrix✔ Populate super-subject matrix [6m 48.8s]
+
+Error while shutting down parallel: unable to terminate some child processes

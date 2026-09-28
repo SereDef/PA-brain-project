@@ -1,0 +1,76 @@
+Loaded verywise 1.3.6
+============================================================
+--- (34) rh area ~ pa_self - intadj ---
+============================================================
+
+── Linear mixed model ─────────────────────────────────────── verywise v1.3.6 ──
+• Outcome: Right hemisphere - Cortical surface area (white surface)
+• Model: ~ pa_self + age + sex + ethn + parent_edu + int + (1 | site)
+
+── User input validation and set-up ────────────────────────────────────────────
+⠙ Input and output paths
+✔ Input and output paths [10ms]
+
+⠙ Check settings and prepare environment
+✔ Check settings and prepare environment [869ms]
+
+ℹ Using FreeSurfer version 6.0.0
+⠙ Load and transform phenotype
+✔ Load and transform phenotype [251ms]
+
+• Phenotype: 30 datasets of dimensions 4407 x 21.
+
+── Brain data processing ───────────────────────────────────────────────────────
+⠙ Read super-subject file from: '/projects/0/einf1049/scratch/sdefina/pa_brain_…
+✔ Read super-subject file from: '/projects/0/einf1049/scratch/sdefina/pa_brain_…
+
+⠙ Clean and chunk super-subject matrix
+! Ignoring 17,676 vertices (11%) that contained 0 values.
+⠙ Clean and chunk super-subject matrix  These may be located at the edge of the cortical map and are potentially
+  problematic.
+⠙ Clean and chunk super-subject matrix• matching phenotype with brain surface data
+⠙ Clean and chunk super-subject matrix✔ Clean and chunk super-subject matrix [15.7s]
+
+→ Ready to run 146166 models (split in 147 chunks).
+
+── Statistical model fitting ───────────────────────────────────────────────────
+⠙ Construct model template
+✔ Construct model template [1.8s]
+
+ℹ model includes 11 fixed parameters and 21 groups
+⠙ Generate file-backed output containers
+✔ Generate file-backed output containers [6ms]
+
+⠙ Fitting linear mixed models... this may take some time, check the 'rh.area.pr…
+Using cluster of 64 workers
+⠙ Fitting linear mixed models... this may take some time, check the 'rh.area.pr…✔ Fitting linear mixed models... this may take some time, check the 'rh.area.pr…
+
+
+── Post-processing ─────────────────────────────────────────────────────────────
+ℹ Convert coefficients, SEs, and p-values to .mgh format
+✔ Convert coefficients, SEs, and p-values to .mgh format [16.9s]
+
+ℹ Estimated smoothness = 24
+⠙ Clusterwise correction
+✔ Clusterwise correction [22.6s]
+
+Model fit summary
+• Singular model fits: 4371 (3%)
+• AIC: -6800.00 [-20000.00, -930.00] * median [range]
+• ICC:            0.01 [0.00, 0.30]
+• Marginal R²:    0.08 [0.02, 0.22]
+• Conditional R²: 0.09 [0.02, 0.32]
+Model estimates
+• (Intercept):  1 clusters | 0.60 [0.29, 1.10] * median beta [range]
+• pa_self:      0 clusters |
+• age:          1 clusters | -0.01 [-0.01, -0.01]
+• sexM:         1 clusters | 0.05 [0.01, 0.14]
+• ethnblack:    1 clusters | -0.05 [-0.13, -0.00]
+• ethnhispanic: 4 clusters | -0.03 [-0.05, -0.00]
+• ethnasian:    4 clusters | -0.05 [-0.11, -0.02]
+• ethnother:    7 clusters | -0.02 [-0.04, -0.01]
+• parent_edu.L: 6 clusters | 0.03 [0.01, 0.05]
+• parent_edu.Q: 0 clusters |
+• int:          0 clusters |
+
+── Done! :) ────────────────────────────────────────────────────────────────────

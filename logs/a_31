@@ -1,0 +1,76 @@
+Loaded verywise 1.3.6
+============================================================
+--- (31) lh thickness ~ pa_mvpa - intadj ---
+============================================================
+
+── Linear mixed model ─────────────────────────────────────── verywise v1.3.6 ──
+• Outcome: Left hemisphere - Cortical thickness
+• Model: ~ pa_mvpa + age + sex + ethn + parent_edu + int + (1 | site)
+
+── User input validation and set-up ────────────────────────────────────────────
+⠙ Input and output paths
+✔ Input and output paths [11ms]
+
+⠙ Check settings and prepare environment
+✔ Check settings and prepare environment [632ms]
+
+ℹ Using FreeSurfer version 6.0.0
+⠙ Load and transform phenotype
+✔ Load and transform phenotype [275ms]
+
+• Phenotype: 30 datasets of dimensions 4407 x 21.
+
+── Brain data processing ───────────────────────────────────────────────────────
+⠙ Read super-subject file from: '/projects/0/einf1049/scratch/sdefina/pa_brain_…
+✔ Read super-subject file from: '/projects/0/einf1049/scratch/sdefina/pa_brain_…
+
+⠙ Clean and chunk super-subject matrix
+! Ignoring 18,764 vertices (11%) that contained 0 values.
+⠙ Clean and chunk super-subject matrix  These may be located at the edge of the cortical map and are potentially
+  problematic.
+⠙ Clean and chunk super-subject matrix• matching phenotype with brain surface data
+⠙ Clean and chunk super-subject matrix✔ Clean and chunk super-subject matrix [15.7s]
+
+→ Ready to run 145078 models (split in 146 chunks).
+
+── Statistical model fitting ───────────────────────────────────────────────────
+⠙ Construct model template
+✔ Construct model template [2s]
+
+ℹ model includes 11 fixed parameters and 21 groups
+⠙ Generate file-backed output containers
+✔ Generate file-backed output containers [9ms]
+
+⠙ Fitting linear mixed models... this may take some time, check the 'lh.thickne…
+Using cluster of 64 workers
+⠙ Fitting linear mixed models... this may take some time, check the 'lh.thickne…✔ Fitting linear mixed models... this may take some time, check the 'lh.thickne…
+
+
+── Post-processing ─────────────────────────────────────────────────────────────
+ℹ Convert coefficients, SEs, and p-values to .mgh format
+✔ Convert coefficients, SEs, and p-values to .mgh format [16.1s]
+
+ℹ Estimated smoothness = 14
+⠙ Clusterwise correction
+✔ Clusterwise correction [23.2s]
+
+Model fit summary
+• Singular model fits: 726 (1%)
+• AIC: -490.00 [-5700.00, 6000.00] * median [range]
+• ICC:            0.02 [0.00, 0.40]
+• Marginal R²:    0.01 [0.00, 0.10]
+• Conditional R²: 0.03 [0.00, 0.40]
+Model estimates
+• (Intercept):  1 clusters | 3.00 [1.40, 4.30] * median beta [range]
+• pa_mvpa:      1 clusters | 0.02 [0.02, 0.02]
+• age:          7 clusters | -0.02 [-0.05, 0.04]
+• sexM:         18 clusters | -0.04 [-0.14, 0.09]
+• ethnblack:    10 clusters | -0.06 [-0.25, 0.11]
+• ethnhispanic: 13 clusters | -0.04 [-0.09, -0.02]
+• ethnasian:    10 clusters | -0.10 [-0.20, 0.14]
+• ethnother:    13 clusters | -0.04 [-0.09, -0.02]
+• parent_edu.L: 1 clusters | 0.04 [0.03, 0.05]
+• parent_edu.Q: 0 clusters |
+• int:          0 clusters |
+
+── Done! :) ────────────────────────────────────────────────────────────────────

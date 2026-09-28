@@ -1,2 +1,17 @@
 __pycache__/
 definitions/__pycache__/
+
+data/
+
+# Ignore all result files by default
+/results/**
+
+# But allow traversal into result subdirectories
+!/results/**/
+
+# Keep coefficient maps
+!/results/**/*.coef.mgh
+# Keep cluster-wise occurrence-number maps
+!/results/**/*.cache.th30.abs.sig.ocn.mgh
+# Keep stack-to-term mapping files
+!/results/**/stack_names.txt
