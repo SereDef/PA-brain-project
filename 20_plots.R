@@ -15,6 +15,14 @@ reticulate::use_virtualenv(path.expand("~/.virtualenvs/r-reticulate"), required 
 
 reticulate::py_config() 
 
+system('
+module load 2025
+module load Xvfb/21.1.18-GCCcore-14.2.0
+
+Xvfb :99 -screen 0 1280x1024x24 &
+export DISPLAY=:99
+sleep 1')  # give Xvfb time to start
+
 
 library(verywise, lib.loc = '/gpfs/home6/sdefina/R/x86_64-pc-linux-gnu-library/4.5')
 
@@ -28,7 +36,7 @@ frees_home <- "/home/genr/software/freesurfer/6.0.0/"
 
 measures <- c("area", "thickness")
 expos <- c('pa_overall', 'pa_light', 'pa_mvpa', 'pa_self', 'tot_steps')
-modls <- c('intadj', 'icvadj') # 'main') # 
+modls <- c('main', 'intadj', 'icvadj')
 
 analysis_grid <- expand.grid(measure = measures, 
                              expo = expos, 
@@ -50,7 +58,7 @@ plot_results <- function(measure, expo, modeltype) {
                       area = 'Cortical surface area (white surface)')
   
   plot_vw_map(
-    res_dir   = file.path(outp_dir, paste0(expo, '_', modeltype)),
+    res_dir   = file.path(outp_dir, expo, paste0(expo, '_', modeltype)),
     term      = expo,
     measure   = measure,
     hemi      = 'both',
