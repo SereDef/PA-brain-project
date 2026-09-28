@@ -20,7 +20,7 @@ def plot_beta_colorbar_density(ax1, ax2, sign_betas, all_betas, colorblind=False
     obs_betas = np.concatenate((all_betas['left'], all_betas['right']), axis=None)
     min_obs_beta = np.nanmin(obs_betas)
     max_obs_beta = np.nanmax(obs_betas)
-    obs_betas = obs_betas[obs_betas != 0.00000]  # TMP: clean out all values exactly equal to 0
+    obs_betas = obs_betas[np.isfinite(obs_betas) & (obs_betas != 0.000000)]
 
     sign_betas = np.concatenate((sign_betas['left'], sign_betas['right']), axis=None)
 
