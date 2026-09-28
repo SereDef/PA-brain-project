@@ -18,7 +18,7 @@ reticulate::py_config()
 
 library(verywise, lib.loc = '/gpfs/home6/sdefina/R/x86_64-pc-linux-gnu-library/4.5')
 
-proj_dir <- "/projects/0/einf1049/scratch/sdefina/pa_brain_2026"
+proj_dir <- "/projects/0/einf1049/scratch/sdefina/PA-brain-project"
 
 outp_dir <- file.path(proj_dir, "results")
 
@@ -57,7 +57,7 @@ plot_results <- function(measure, expo, modeltype) {
     surface   = 'pial',
     threshold = 'cws',
     title = paste(meas_name, '~', expo_name), 
-    to_file   = file.path(outp_dir, 'plots', paste(measure, expo, modeltype, 'png', sep = '.')),
+    to_file   = file.path(proj_dir, 'plots', paste(measure, expo, modeltype, 'png', sep = '.')),
     fs_home   = frees_home
   )
 }

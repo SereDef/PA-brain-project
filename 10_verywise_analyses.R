@@ -4,7 +4,7 @@ library(verywise, lib.loc = '/gpfs/home6/sdefina/R/x86_64-pc-linux-gnu-library/4
 # Arguments --------------------------------------------------------
 n_cores <- as.integer(Sys.getenv("SLURM_CPUS_PER_TASK"), unset = 1)
 
-proj_dir <- "/projects/0/einf1049/scratch/sdefina/pa_brain_2026"
+proj_dir <- "/projects/0/einf1049/scratch/sdefina/PA-brain-project"
 
 data_dir <-  file.path(proj_dir, "data")
 outp_dir <- file.path(proj_dir, "results")

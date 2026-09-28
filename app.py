@@ -15,7 +15,7 @@ from definitions.ui_functions import welcome_page, main_results_page, overlap_pa
 here = Path(__file__).parent
 
 start_folder = './results'
-results_format = 'QDECR'
+results_format = 'verywise'
 project_name = 'Physical activity and brain development'
 
 vww_blue = '#001f60'
